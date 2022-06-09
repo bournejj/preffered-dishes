@@ -5,43 +5,56 @@
   },
   "navigation": [
     {
-      "name": "Product",
-      "href": "product"
+      "name": "liked",
+      "href": "liked"
     },
     {
-      "name": "Features",
-      "href": "features"
+      "name": "Dishes",
+      "href": "dishes"
     },
 
     {
-      "name": "Pricing",
-      "href": "pricing"
+      "name": "Restaurants",
+      "href": "restaurants"
     },
     {
       "name": "About",
       "href": "about"
     }
+
   ],
   "callToAction": {
     "text": "Get started",
     "href": "#"
   },
   "mainHero": {
-    "title": "Use me as your",
-    "subtitle": "landing page.",
-    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+    "title": "Find Your",
+    "subtitle": "",
+    "description": "",
     "img": "/assets/images/happyTeam.jpeg",
     "primaryAction": {
-      "text": "Get started",
+      "text": "Sign In",
       "href": "#"
     },
+    "secondaryTitle": {
+      "text": "Next",
+      "colour": "text-red-400"
+      
+     
+    },
+    "thirdTitle": {
+      "text": "Dish",
+      "colour": "text-red-400"
+     
+    },
+   
     "secondaryAction": {
-      "text": "Email us",
+      "text": "Sign Up",
       "href": "mailto:issaafakattan@gmail.com?subject=I like react landing page!"
     }
   },
   "product": {
-    "title": "React landing page 2021",
+    "title": "Dishes of the day",
     "items": [
       {
         "title": "A plug n play template",

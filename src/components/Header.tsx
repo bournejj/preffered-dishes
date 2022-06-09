@@ -2,13 +2,17 @@ import React, { Fragment } from 'react';
 
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import { Link } from 'react-scroll';
+import Link from 'next/link';
+import { useSelector } from 'react-redux';
+// import { Link } from 'react-scroll';
 
 import config from '../config/index.json';
 
 const Menu = () => {
   const { navigation, company, callToAction } = config;
+  const { mainHero } = config;
   const { name: companyName, logo } = company;
+  const user = useSelector((store) => store.main.name);
 
   return (
     <>
@@ -25,7 +29,7 @@ const Menu = () => {
       <Popover>
         <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
           <nav
-            className="relative flex items-center justify-between sm:h-10 lg:justify-start"
+            className="relative flex items-center justify-between sm:h-10 "
             aria-label="Global"
           >
             <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
@@ -44,9 +48,10 @@ const Menu = () => {
                 </div>
               </div>
             </div>
-            <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
+            <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8 absolute left-10">
               {navigation.map((item) => (
                 <Link
+                  href={item.href}
                   spy={true}
                   active="active"
                   smooth={true}
@@ -58,13 +63,36 @@ const Menu = () => {
                   {item.name}
                 </Link>
               ))}
-              <a
-                href="#"
-                className={`font-medium text-primary hover:text-secondary`}
-              >
-                Call to action
-              </a>
             </div>
+
+            {user === 'guest' ? (
+              <div className="flex justify-end ...">
+                <div>
+                  <Link href="/register">
+                    <a
+                      href={mainHero.secondaryAction.href}
+                      className={` w-full flex items-center justify-center px-4 py-2 border border-transparent text-black font-medium rounded-md border-primary  bg-background  hover:text-black md:text-base `}
+                    >
+                      {mainHero.secondaryAction.text}
+                    </a>
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/login">
+                    <a
+                      href={mainHero.secondaryAction.href}
+                      className={`bg-red-500  w-full flex items-center justify-center px-4 py-2  text-white border border-transparent text-base font-bold rounded-md border-primary  bg-background hover:bg-white hover:text-primary md:text-base `}
+                    >
+                      {mainHero.primaryAction.text}
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              <h1 className="  text-3xl tracking-tight font-extrabold text-primary sm:text">
+                Hi {user.user.firstName}
+              </h1>
+            )}
           </nav>
         </div>
 
@@ -112,12 +140,6 @@ const Menu = () => {
                   </Link>
                 ))}
               </div>
-              <a
-                href={callToAction.href}
-                className={`block w-full px-5 py-3 text-center font-medium text-primary bg-gray-50 hover:bg-gray-100`}
-              >
-                {callToAction.text}
-              </a>
             </div>
           </Popover.Panel>
         </Transition>
