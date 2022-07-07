@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import { createWrapper } from 'next-redux-wrapper';
+import { createWrapper } from "next-redux-wrapper";
 // import { AppProps } from 'next/app';
-import App from 'next/app';
-import { Provider } from 'react-redux';
+import App from "next/app";
+import { Provider } from "react-redux";
 
-import Header from '../components/Header';
-import store from '../redux/store';
+import Header from "../components/Header";
+import store from "../redux/store";
 
-import '../styles/main.css';
+import "../styles/main.css";
 
 // const store = createStore(rootReducer);
 
@@ -34,6 +34,7 @@ class MyApp extends App {
     return (
       <Provider store={store}>
         <Header />
+
         <Component {...appProps} />
       </Provider>
     );

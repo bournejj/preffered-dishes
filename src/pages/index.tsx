@@ -1,43 +1,31 @@
-import React from 'react';
+import React from "react";
 
-import About from '../components/About';
-import Analytics from '../components/Analytics';
-import Canvas from '../components/Canvas';
-import Features from '../components/Features';
-import FiltersNew from '../components/FiltersNew';
-import LazyShow from '../components/LazyShow';
-import MainHero from '../components/MainHero';
-import Pricing from '../components/Pricing';
-import Product from '../components/Product';
-import Items from './item/index';
+import About from "../components/About";
+import Analytics from "../components/Analytics";
+import Canvas from "../components/Canvas";
+import Dishes from "../components/Dishes";
+import Filters from "../components/Filters";
+import LazyShow from "../components/LazyShow";
+import MainHero from "../components/MainHero";
+import Product from "../components/Product";
 
 const App = () => {
   return (
     <div>
       <MainHero />
-      {/* <Filters /> */}
-      <FiltersNew />
-      {/* <SearchBar /> */}
+      <Filters />
+
       <Canvas />
       <LazyShow>
         <>
-          <Items />
+          <Dishes />
           <Product />
           <Canvas />
         </>
       </LazyShow>
+
       <LazyShow>
         <>
-          <Features />
-          <Canvas />
-        </>
-      </LazyShow>
-      <LazyShow>
-        <Pricing />
-      </LazyShow>
-      <LazyShow>
-        <>
-          <Canvas />
           <About />
         </>
       </LazyShow>

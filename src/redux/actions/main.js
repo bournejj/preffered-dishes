@@ -1,11 +1,75 @@
-import axios from 'axios';
-import * as t from '../types';
-import { request } from '../../util/request';
+import axios from "axios";
+import * as t from "../types";
+import { request } from "../../util/request";
 
-export default function setInfo(name) {
+export function setInfo(name) {
   return {
     type: t.SET_NAME,
     payload: name,
+  };
+}
+export function setQuery(query) {
+  return {
+    type: t.SET_QUERY,
+    payload: query,
+  };
+}
+export function updateFilterQuery(query) {
+  return {
+    type: t.UPDATE_FILTER_QUERY,
+    payload: query,
+  };
+}
+export function updateSearchQuery(searchQuery) {
+  console.log(searchQuery);
+
+  return {
+    type: t.UPDATE_SEARCH_QUERY,
+    payload: searchQuery,
+  };
+}
+export function updateSearchAndFilterQuery(query) {
+  return {
+    type: t.UPDATE_SEARCH_AND_FILTER_QUERY,
+    payload: query,
+  };
+}
+export function deleteQuery(query) {
+  return {
+    type: t.DELETE_QUERY,
+    payload: query,
+  };
+}
+export function deleteSearchQuery(query) {
+  return {
+    type: t.DELETE_SEARCH_QUERY,
+    payload: query,
+  };
+}
+
+export function updateDishes(dishes) {
+  return {
+    type: t.UPDATE_DISHES,
+    payload: dishes,
+  };
+}
+export function updateFilterOptions(filter) {
+  return {
+    type: t.UPDATE_FILTER_OPTIONS,
+    payload: filter,
+  };
+}
+export function deleteCheckedBoxes(boxes) {
+  return {
+    type: t.DELETE_BOXES,
+    payload: boxes,
+  };
+}
+
+export function updateRestaurants(restaurants) {
+  return {
+    type: t.UPDATE_RESTAURANTS,
+    payload: restaurants,
   };
 }
 
@@ -163,12 +227,13 @@ export default function setInfo(name) {
 //   }
 // };
 
-// export const updateTodo = (id, title, done) => async (dispatch) => {
-//   try {
+// export const updateDishes = ({dishes}) => async (dispatch) => {
+//   return {
 //     dispatch({
-//       type: t.LOADING,
-//       payload: true,
+//       type: t.UPDATE_DISHES,
+//       payload: dishes,
 //     });
+//   }
 
 //     const userData = JSON.parse(localStorage.getItem('user_info'));
 //     const email = userData ? userData.email : '';

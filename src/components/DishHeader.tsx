@@ -2,7 +2,7 @@ import React from "react";
 
 import config from "../config/index.json";
 
-const MainHero = () => {
+const DishHeader = () => {
   const { mainHero } = config;
   return (
     <div className="center">
@@ -28,4 +28,4 @@ const MainHero = () => {
   );
 };
 
-export default MainHero;
+export default DishHeader;

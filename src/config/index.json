@@ -6,22 +6,44 @@
   "navigation": [
     {
       "name": "liked",
-      "href": "liked"
+      "href": "/liked"
     },
     {
       "name": "Dishes",
-      "href": "dishes"
+      "href": "/dishes"
     },
 
     {
       "name": "Restaurants",
-      "href": "restaurants"
+      "href": "/restaurants"
     },
     {
       "name": "About",
-      "href": "about"
+      "href": "/about"
     }
-
+  ],
+  "filterOptions": [
+    {
+      "name": "Gluten Free",
+      "value": "dietrary_requirments_gf=true",
+      "notActiveImg": "https://cdn-icons-png.flaticon.com/512/4789/4789374.png",
+      "activeImg": "https://cdn-icons-png.flaticon.com/512/4789/4789379.png",
+      "clicked": false
+    },
+    {
+      "name": "Vegetarian",
+      "value": "dietrary_requirments_v=true",
+      "notActiveImg": "https://cdn-icons-png.flaticon.com/512/3778/3778902.png",
+      "activeImg": "https://cdn-icons-png.flaticon.com/512/3779/3779256.png",
+      "clicked": false
+    },
+    {
+      "name": "Vegan",
+      "value": "dietrary_requirments_vg=true",
+      "notActiveImg": "https://cdn-icons-png.flaticon.com/512/5579/5579100.png",
+      "activeImg": "https://cdn-icons-png.flaticon.com/512/5581/5581203.png",
+      "clicked": false
+    }
   ],
   "callToAction": {
     "text": "Get started",
@@ -39,15 +61,12 @@
     "secondaryTitle": {
       "text": "Next",
       "colour": "text-red-400"
-      
-     
     },
     "thirdTitle": {
       "text": "Dish",
       "colour": "text-red-400"
-     
     },
-   
+
     "secondaryAction": {
       "text": "Sign Up",
       "href": "mailto:issaafakattan@gmail.com?subject=I like react landing page!"

@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
 
-import { Popover, Transition } from '@headlessui/react';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import Link from 'next/link';
-import { useSelector } from 'react-redux';
+import { Popover, Transition } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import Link from "next/link";
+import { useSelector } from "react-redux";
 // import { Link } from 'react-scroll';
 
-import config from '../config/index.json';
+import config from "../config/index.json";
 
 const Menu = () => {
   const { navigation, company, callToAction } = config;
@@ -34,10 +34,16 @@ const Menu = () => {
           >
             <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
               <div className="flex items-center justify-between w-full md:w-auto">
-                <a href="#">
-                  <span className="sr-only">{companyName}</span>
-                  <img alt="logo" className="h-16 w-auto sm:h-16" src={logo} />
-                </a>
+                <Link href="/">
+                  <a href="">
+                    <span className="sr-only">{companyName}</span>
+                    <img
+                      alt="logo"
+                      className="h-16 w-auto sm:h-16"
+                      src={logo}
+                    />
+                  </a>
+                </Link>
                 <div className="-mr-2 flex items-center md:hidden">
                   <Popover.Button
                     className={`bg-background rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary`}
@@ -65,10 +71,10 @@ const Menu = () => {
               ))}
             </div>
 
-            {user === 'guest' ? (
+            {user === "guest" ? (
               <div className="flex justify-end ...">
                 <div>
-                  <Link href="/register">
+                  <Link href="/signUp">
                     <a
                       href={mainHero.secondaryAction.href}
                       className={` w-full flex items-center justify-center px-4 py-2 border border-transparent text-black font-medium rounded-md border-primary  bg-background  hover:text-black md:text-base `}
@@ -78,7 +84,7 @@ const Menu = () => {
                   </Link>
                 </div>
                 <div>
-                  <Link href="/login">
+                  <Link href="/signIn">
                     <a
                       href={mainHero.secondaryAction.href}
                       className={`bg-red-500  w-full flex items-center justify-center px-4 py-2  text-white border border-transparent text-base font-bold rounded-md border-primary  bg-background hover:bg-white hover:text-primary md:text-base `}
