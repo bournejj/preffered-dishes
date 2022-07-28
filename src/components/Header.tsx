@@ -3,8 +3,8 @@ import React, { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
-import { useSelector } from "react-redux";
 // import { Link } from 'react-scroll';
+import { useSelector } from "react-redux";
 
 import config from "../config/index.json";
 
@@ -12,7 +12,7 @@ const Menu = () => {
   const { navigation, company, callToAction } = config;
   const { mainHero } = config;
   const { name: companyName, logo } = company;
-  const user = useSelector((store) => store.main.name);
+  const { user } = useSelector((store) => store);
 
   return (
     <>
@@ -71,7 +71,7 @@ const Menu = () => {
               ))}
             </div>
 
-            {user === "guest" ? (
+            {user.length === undefined ? (
               <div className="flex justify-end ...">
                 <div>
                   <Link href="/signUp">
@@ -87,7 +87,7 @@ const Menu = () => {
                   <Link href="/signIn">
                     <a
                       href={mainHero.secondaryAction.href}
-                      className={`bg-red-500  w-full flex items-center justify-center px-4 py-2  text-white border border-transparent text-base font-bold rounded-md border-primary  bg-background hover:bg-white hover:text-primary md:text-base `}
+                      className={`bg-red-500  w-full flex items-center justify-center px-4 py-2  text-white border border-transparent text-base font-bold rounded-md border-primary hover:bg-white hover:text-primary md:text-base `}
                     >
                       {mainHero.primaryAction.text}
                     </a>
@@ -96,7 +96,7 @@ const Menu = () => {
               </div>
             ) : (
               <h1 className="  text-3xl tracking-tight font-extrabold text-primary sm:text">
-                Hi {user.user.firstName}
+                Hi {user.firstName}
               </h1>
             )}
           </nav>

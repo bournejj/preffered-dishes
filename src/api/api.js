@@ -1,7 +1,8 @@
 // import userEvent from '@testing-library/user-event';
-import axios from 'axios';
+import axios from "axios";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001';
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 /** API Class.
  *
@@ -49,7 +50,7 @@ class DietaryRequirementsApi {
 
   static async login(user) {
     const res = await axios({
-      method: 'post',
+      method: "post",
       url: `${BASE_URL}/auth/login`,
       data: {
         username: user.username,
@@ -62,7 +63,7 @@ class DietaryRequirementsApi {
 
   static async register(user) {
     const res = await axios({
-      method: 'post',
+      method: "post",
       url: `${BASE_URL}/auth/register`,
       data: {
         firstName: user.firstName,

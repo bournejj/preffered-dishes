@@ -20,7 +20,7 @@ const Restaurants = () => {
 
     getDishes();
   }, []);
-  console.log(restaurants);
+
   if (!restaurants) return <h1>Loading....</h1>;
 
   return (

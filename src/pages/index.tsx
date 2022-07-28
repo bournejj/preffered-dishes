@@ -7,15 +7,19 @@ import Dishes from "../components/Dishes";
 import Filters from "../components/Filters";
 import LazyShow from "../components/LazyShow";
 import MainHero from "../components/MainHero";
+import MessagesRight from "../components/MessagesRight";
 import Product from "../components/Product";
+import SearchBar from "../components/SearchBar";
 
 const App = () => {
   return (
     <div>
       <MainHero />
+      <SearchBar />
+      <MessagesRight />
       <Filters />
-
       <Canvas />
+
       <LazyShow>
         <>
           <Dishes />
@@ -23,7 +27,6 @@ const App = () => {
           <Canvas />
         </>
       </LazyShow>
-
       <LazyShow>
         <>
           <About />

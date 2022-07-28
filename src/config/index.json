@@ -16,10 +16,6 @@
     {
       "name": "Restaurants",
       "href": "/restaurants"
-    },
-    {
-      "name": "About",
-      "href": "/about"
     }
   ],
   "filterOptions": [
@@ -73,17 +69,17 @@
     }
   },
   "product": {
-    "title": "Dishes of the day",
+    "title": "Preffered Dishes",
     "items": [
       {
-        "title": "A plug n play template",
-        "description": "Just edit the config.json file with details about your company and voila your beautiful state of the art landing page is ready to go live! Remember to also update your assets, add any images you want to show to /assets/images and link them in the config.json",
-        "img": "/assets/images/product1.jpg"
+        "title": "An easy no fuss app",
+        "description": "Just select your dietary requirement, search by description or both",
+        "img": "https://cdn-icons-png.flaticon.com/512/3063/3063835.png"
       },
       {
-        "title": "Make it your own!",
-        "description": "Play around with the theme.ts file and configure the color palette to match the branding of your company! If you're feeling wild, maybe change some tailwind css as well!",
-        "img": "/assets/images/product2.jpg"
+        "title": "No more fuss!",
+        "description": "Created after wasting too much time looking searching for dishes in my area based on my needs",
+        "img": "https://cdn-icons-png.flaticon.com/512/4697/4697911.png"
       }
     ]
   },

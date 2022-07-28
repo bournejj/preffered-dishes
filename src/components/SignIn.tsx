@@ -27,11 +27,9 @@ const Login = () => {
     e.preventDefault();
 
     const userRes = await DietaryRequirementsApi.login(formData);
-    console.log(userRes);
 
     if (userRes) {
       dispatch(setInfo(userRes));
-
       router.push("/");
     }
   };

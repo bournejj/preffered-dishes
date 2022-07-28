@@ -37,12 +37,10 @@ const Register = () => {
     e.preventDefault();
 
     const userRes = await DietaryRequirementsApi.register(formData);
-
     dispatch(setInfo(userRes));
-
     router.push("/");
   };
-  console.log(user);
+
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white border-t border-red-500 rounded shadow-lg shadow-purple-800/50 lg:max-w-md">
