@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import DietaryRequirementsApi from '../api/api';
 
 const Filters = () => {
-  useEffect(function getCompanyAndJobsForUser() {
+  useEffect(function getDishesForUser() {
     async function getAllDishes() {
       const res = await DietaryRequirementsApi.getDishes();
     }
@@ -111,36 +111,6 @@ const Filters = () => {
                 Submit
               </button>
             </div>
-
-            {/* <label htmlFor="checkboxNine">Princess Celestia</label>
-          </li>
-          <li>
-            <input type="checkbox" id="checkboxTen" value="Gusty" />
-            <label htmlFor="checkboxTen">Gusty</label>
-          </li>
-          <li className="ks-selected">
-            <input type="checkbox" id="checkboxEleven" value="Discord" />
-            <label htmlFor="checkboxEleven">Discord</label>
-          </li>
-          <li>
-            <input type="checkbox" id="checkboxTwelve" value="Clover" />
-            <label htmlFor="checkboxTwelve">Clover</label>
-          </li>
-          <li>
-            <input
-              type="checkbox"
-              id="checkboxThirteen"
-              value="Baby Moondancer"
-            />
-            <label htmlFor="checkboxThirteen">Baby Moondancer</label>
-          </li>
-          <li>
-            <input type="checkbox" id="checkboxFourteen" value="Medley" />
-            <label htmlFor="checkboxFourteen">Medley</label>
-          </li>
-          <li>
-            <input type="checkbox" id="checkboxFifteen" value="Firefly" />
-            <label htmlFor="checkboxFifteen">Firefly</label> */}
           </ul>
         </div>
       </form>
