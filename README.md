@@ -1,8 +1,8 @@
 # React.js landing page template v2
 
-<!-- ## <a href="https://youtu.be/H8GN2Uxk-Ww"> LIVE DEMO</a> -->
+## <a href="https://youtu.be/H8GN2Uxk-Ww"> LIVE DEMO</a>
 
-<img src="https://youtu.be/H8GN2Uxk-Ww"" width="100%" height="auto" />
+<img src="https://www.youtube.com/watch?v=H8GN2Uxk-Ww" width="100%" height="auto" />
 
 ### Description
 
