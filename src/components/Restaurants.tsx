@@ -9,9 +9,6 @@ import Restaurant from "./Restaurant";
 const Restaurants = () => {
   const dispatch = useDispatch();
   const restaurants = useSelector((store) => store.main.restaurants);
-
-  console.log(restaurants);
-
   useEffect(function getCompanyAndJobsForUser() {
     async function getDishes() {
       const res = await DietaryRequirementsApi.getRestaurants();

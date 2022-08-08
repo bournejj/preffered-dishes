@@ -13,6 +13,7 @@ const Menu = () => {
   const { mainHero } = config;
   const { name: companyName, logo } = company;
   const { user } = useSelector((store) => store);
+  console.log(user.accessToken.length);
 
   return (
     <>
@@ -71,7 +72,7 @@ const Menu = () => {
               ))}
             </div>
 
-            {user.length === undefined ? (
+            {user.accessToken.length === 0 ? (
               <div className="flex justify-end ...">
                 <div>
                   <Link href="/signUp">
@@ -96,7 +97,7 @@ const Menu = () => {
               </div>
             ) : (
               <h1 className="  text-3xl tracking-tight font-extrabold text-primary sm:text">
-                Hi {user.firstName}
+                Hi {user.user.firstName}
               </h1>
             )}
           </nav>

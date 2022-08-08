@@ -2,7 +2,7 @@ import React from "react";
 
 import Link from "next/link";
 
-const Restaurant = ({ id, restaurant_name, address, underline }) => {
+const Restaurant = ({ id, restaurant_name, address, url }) => {
   return (
     <div className="content-center	">
       <div className="container mx-auto p-6 grid mt-24 mr-60 content-center	 ">
@@ -15,9 +15,9 @@ const Restaurant = ({ id, restaurant_name, address, underline }) => {
           <p className="mb-3 font-normal text-black dark:text-gray-400">
             {address}
           </p>
-          <Link href={`/restaurants/${id}`}>
+          <Link href={url}>
             <a
-              href="#"
+              href={url}
               className="  underline border-white inline-flex items-center py-2 px-3 text-sm font-medium text-center text-primary bg-white  rounded-lg hover:bg-white hover:text-primary focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               {restaurant_name} Website

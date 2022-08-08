@@ -5,12 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRandom, getDishes } from "../features/dishes/dishesSlice.js";
 import { useGetDishesQuery } from "../services/apiSlice.js";
 import Dish from "./Dish.tsx";
-// import getDishes from '../redux/hooks/dishes';
 
 const Dishes = () => {
   const query = useSelector((store) => store.filterOptions.query);
   const apiQuery = useSelector((store) => store.filterOptions.apiQuery);
-  console.log(apiQuery);
+
   const searchQuery = useSelector((store) => store.filterOptions.searchQuery);
   const { data, error, isLoading, isFetching, isSuccess, refetch } =
     useGetDishesQuery(apiQuery);
@@ -58,23 +57,6 @@ const Dishes = () => {
           <p className="lead">Sorry, no results were found!</p>
         )}
       </div>
-      {/* <div className="App">
-        <h1>React Redux Toolkit RTK Query Tutorial</h1>
-        {isLoading && <h2>...Loading</h2>}
-        {isFetching && <h2>...isFetching</h2>}
-        {error && <h2>Something went wrong</h2>}
-        {isSuccess && (
-          <div>
-            {data?.map((contact) => {
-              return (
-                <div className="data">
-                  <span>{data.dish_name}</span>
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </div> */}
     </div>
   );
 };

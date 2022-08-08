@@ -1,29 +1,33 @@
-import { useEffect } from "react";
-
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 
-import DietaryRequirementsApi from "../../api/api";
-import Restaurants from "../../components/Restaurants";
-import { updateRestaurants } from "../../redux/actions/main";
+import Restaurant from "../../components/Restaurant";
+import { useGetRestaurantByIdQuery } from "../../services/apiSlice";
 
 const restaurant = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const { id } = router.query;
   console.log("yes");
+  const { data, error, isLoading, isFetching, isSuccess, refetch } =
+    useGetRestaurantByIdQuery(id);
+  if (isSuccess) {
+    console.log(data);
+  }
 
-  useEffect(function getDishes() {
-    async function getData() {
-      const res2 = await DietaryRequirementsApi.getRestaurantById(id);
-
-      dispatch(updateRestaurants(res2));
-    }
-
-    getData();
-  }, []);
-
-  return <Restaurants />;
+  return (
+    <div>
+      {isSuccess ? (
+        <Restaurant
+          restaurant_name={data[0].restaurant_name}
+          address={data[0].address}
+          url={data[0].url}
+        />
+      ) : (
+        <h1>loading...</h1>
+      )}
+    </div>
+  );
 };
 
 export default restaurant;

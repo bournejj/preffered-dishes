@@ -4,19 +4,10 @@ import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 
-import DietaryRequirementsApi from "../api/api";
-import { setInfo } from "../redux/actions/main";
-// import { Router } from 'react-router-dom';
+import { setCredentials } from "../features/user/userSlice";
+import { useRegisterUserMutation } from "../services/apiSlice";
 
 const Register = () => {
-  const dispatch = useDispatch();
-  const user = useSelector((store) => store);
-
-  const router = useRouter();
-  const [route, setRoute] = useState();
-
-  const [loggedIn, setLoggedIn] = useState(false);
-
   const INITIAL_STATE = {
     username: "",
     firstName: "",
@@ -25,6 +16,10 @@ const Register = () => {
     password: "",
   };
   const [formData, setFormData] = useState(INITIAL_STATE);
+  const dispatch = useDispatch();
+  const user = useSelector((store) => store);
+  const [register, { isLoading }] = useRegisterUserMutation();
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,9 +31,14 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const userRes = await DietaryRequirementsApi.register(formData);
-    dispatch(setInfo(userRes));
-    router.push("/");
+    if (formData.username && formData.password) {
+      const userData = await register(formData);
+
+      dispatch(setCredentials(userData));
+      router.push("/");
+    } else {
+      router.push("/signUp");
+    }
   };
 
   return (

@@ -7,15 +7,6 @@
     {
       "name": "liked",
       "href": "/liked"
-    },
-    {
-      "name": "Dishes",
-      "href": "/dishes"
-    },
-
-    {
-      "name": "Restaurants",
-      "href": "/restaurants"
     }
   ],
   "filterOptions": [

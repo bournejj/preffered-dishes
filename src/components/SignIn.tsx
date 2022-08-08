@@ -4,8 +4,8 @@ import Link from "next/link";
 import router from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 
-import DietaryRequirementsApi from "../api/api";
-import { setInfo } from "../redux/actions/main";
+import { setCredentials } from "../features/user/userSlice";
+import { useLoginUserMutation } from "../services/apiSlice";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -15,6 +15,8 @@ const Login = () => {
     password: "",
   };
   const [formData, setFormData] = useState(INITIAL_STATE);
+
+  const [login, { isLoading }] = useLoginUserMutation();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,11 +28,16 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const userRes = await DietaryRequirementsApi.login(formData);
-
-    if (userRes) {
-      dispatch(setInfo(userRes));
+    if (formData.username && formData.password) {
+      const userData = await login(formData);
+      console.log(userData.data.user);
+      dispatch(setCredentials(userData));
       router.push("/");
+      // useDispatch(useLoginUserMutation(formData));
+    } else {
+      console.log("no");
+
+      // refetch(formData);
     }
   };
 

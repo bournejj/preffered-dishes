@@ -4,6 +4,7 @@ import { useGetDishesByFilterQuery } from "../../services/apiSlice";
 
 const initialState = {
   dishes: [],
+  dish: [],
 };
 
 const dishesSlice = createSlice({
@@ -19,7 +20,10 @@ const dishesSlice = createSlice({
     getDishes: (state, { payload }) => {
       state.dishes = payload;
     },
+    getDish: (state, { payload }) => {
+      state.dish = payload;
+    },
   },
 });
-export const { getRandom, getDishes } = dishesSlice.actions;
+export const { getRandom, getDishes, getDish } = dishesSlice.actions;
 export default dishesSlice.reducer;
