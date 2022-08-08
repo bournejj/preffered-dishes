@@ -4,9 +4,9 @@ import Link from "next/link";
 
 const Restaurant = ({ id, restaurant_name, address, url }) => {
   return (
-    <div className="content-center	">
-      <div className="container mx-auto p-6 grid mt-24 mr-60 content-center	 ">
-        <div className="  p-6 max-w-sm bg-primary rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div className="justify-center	">
+      <div className="container mt-12 ml-96 p-6 grid content-center	 ">
+        <div className="  p-6  bg-primary rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white">
               {restaurant_name}
