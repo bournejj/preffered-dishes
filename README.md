@@ -29,3 +29,9 @@ I collected the data myself from nearby restaurants in my neighborhood. I then c
 Search for dishes by name, description, gluten free, vegetarian or vegan to view dishes data which are connected to the restaurants where they come from. 
 
 Users will eventually be able to have their own profile set up that includes all the dishes they have saved
+
+### Technologies
+Preffered Dishes will be a web application that will be built using
+Front-End: React Next js Tailwind css
+Back-End: Node.js Express.js
+Database: PostgreSQL
