@@ -1,4 +1,4 @@
-# React.js landing page template v2
+# Preffered Dishes
 
 <!-- ## <a href="https://youtu.be/H8GN2Uxk-Ww"> LIVE DEMO</a> -->
 
