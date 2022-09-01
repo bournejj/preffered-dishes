@@ -1,6 +1,6 @@
 
-const client = require('../../../client')
-const Dish = require("../../models/dishes");
+const client = require('../../../../client')
+const Dish = require("../../../models/dishes");
 
 
 
