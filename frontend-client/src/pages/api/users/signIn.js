@@ -18,8 +18,9 @@ export default async function user(req, res) {
   else {
 
        const user = await User.authenticate(req.body.username, req.body.password);
+       const token = createToken(user);
 console.log(user)
-    return res.send(user)
+    return res.send({user, token})
   }
    
   }

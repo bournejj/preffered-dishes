@@ -18,8 +18,9 @@ export default async function user(req, res) {
   else {
 
        const user = await User.register(req.body.username, req.body.password, req.body.first_name, req.body.last_name, req.body.email );
+       const token = createToken(user);
 console.log(user)
-    return res.send(user)
+    return res.send({ user, token })
   }
   
   }

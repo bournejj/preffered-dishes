@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
   reducerPath: "apiSlice",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/api" }),
   endpoints: (builder) => ({
     getDishes: builder.query({
       query: (query) => (query.length > 0 ? `/dishes${query}` : "/dishes"),
@@ -15,14 +15,14 @@ export const apiSlice = createApi({
     }),
     registerUser: builder.mutation({
       query: (credentials) => ({
-        url: "/auth/register",
+        url: "/users/signUp",
         method: "POST",
         body: { ...credentials },
       }),
     }),
     loginUser: builder.mutation({
       query: (credentials) => ({
-        url: "/auth/login",
+        url: "/users/signIn",
         method: "POST",
         body: { ...credentials },
       }),

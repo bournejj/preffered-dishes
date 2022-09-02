@@ -10,10 +10,11 @@ import { useRegisterUserMutation } from "../services/apiSlice";
 const Register = () => {
   const INITIAL_STATE = {
     username: "",
-    firstName: "",
-    lastName: "",
-    email: "",
     password: "",
+    first_name: "",
+    last_name: "",
+    email: "",
+  
   };
   const [formData, setFormData] = useState(INITIAL_STATE);
   const dispatch = useDispatch();
@@ -27,12 +28,14 @@ const Register = () => {
       ...formData,
       [name]: value,
     }));
+    console.log(formData)
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     if (formData.username && formData.password) {
       const userData = await register(formData);
+ 
 
       dispatch(setCredentials(userData));
       router.push("/");
@@ -62,25 +65,25 @@ const Register = () => {
             />
           </div>
           <div>
-            <label htmlFor="firstName" className="block text-sm text-gray-800">
+            <label htmlFor="first_name" className="block text-sm text-gray-800">
               First Name
             </label>
             <input
-              type="firstName"
-              name="firstName"
-              value={formData.firstName}
+              type="first_name"
+              name="first_name"
+              value={formData.first_name}
               onChange={handleChange}
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
           <div>
-            <label htmlFor="lastName" className="block text-sm text-gray-800">
+            <label htmlFor="last_name" className="block text-sm text-gray-800">
               Last Name
             </label>
             <input
-              type="lasttName"
-              name="lastName"
-              value={formData.lastName}
+              type="lastt_name"
+              name="last_name"
+              value={formData.last_name}
               onChange={handleChange}
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />

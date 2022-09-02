@@ -30,7 +30,7 @@ const Login = () => {
 
     if (formData.username && formData.password) {
       const userData = await login(formData);
-      console.log(userData.data.user);
+
       dispatch(setCredentials(userData));
       router.push("/");
       // useDispatch(useLoginUserMutation(formData));
