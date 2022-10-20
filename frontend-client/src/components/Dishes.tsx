@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
-
 import { getRandom, getDishes } from "../features/dishes/dishesSlice.js";
 import { useGetDishesQuery } from "../services/apiSlice.js";
 import Dish from "./Dish.tsx";
@@ -18,7 +16,7 @@ const Dishes = () => {
   const dispatch = useDispatch();
   const dishes = useSelector((store) => store.dishes);
 
-  console.log(data);
+
 
   useEffect(() => {
     if (isSuccess && query.length === 0) {

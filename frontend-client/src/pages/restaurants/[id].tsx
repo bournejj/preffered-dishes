@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
-
 import Restaurant from "../../components/Restaurant";
 import { useGetRestaurantByIdQuery } from "../../services/apiSlice";
 
@@ -8,12 +7,9 @@ const restaurant = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const { id } = router.query;
-  console.log("yes");
   const { data, error, isLoading, isFetching, isSuccess, refetch } =
     useGetRestaurantByIdQuery(id);
-  if (isSuccess) {
-    console.log(data);
-  }
+
 
   return (
     <div>

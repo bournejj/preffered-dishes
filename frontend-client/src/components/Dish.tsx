@@ -14,10 +14,10 @@ const Dish = ({
   data,
 }) => {
   return (
-    <div className="grid ">
+    <div className="grid mx-10 ">
       <div className="">
         {!data ? (
-          <div className=" container mx-auto  -mx-4 grid mt-24 mr-60  p-6 max-w-sm bg-primary rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+          <div className=" container mx-auto  mx-1 -mx-4 grid mt-24 mr-60  p-6 max-w-sm bg-primary rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <div>
               <a href="#">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white">

@@ -21,20 +21,17 @@ const FiltersNew = () => {
   const [toggle, setIsToggle] = useState(false);
 
   const handleCheckboxChange = (data) => {
-    console.log("handlechange");
     dispatch(update(data));
   };
 
   useEffect(() => {
     const clicked = filterOptions.filter((item) => item.clicked === true);
     if (clicked) {
-      console.log(clicked);
       dispatch(updateFilterQuery(clicked));
     }
   }, [filterOptions]);
 
   useEffect(() => {
-    console.log("changing url query");
     dispatch(updateUrlQuery());
   }, [query, searchQuery]);
 

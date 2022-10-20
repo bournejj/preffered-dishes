@@ -77,6 +77,13 @@ static async authenticate(username, password) {
   
       return user;
     }
+
+
+    static async deleteUser(id) {
+      const usersRes = await db.query(`DELETE * FROM users WHERE id =$1`);
+      
+      return usersRes.rows;
+    }
   
  
   static async findAll() {

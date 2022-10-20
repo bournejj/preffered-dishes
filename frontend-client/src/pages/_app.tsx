@@ -10,13 +10,6 @@ import store from "../redux/store";
 
 import "../styles/main.css";
 
-// const store = createStore(rootReducer);
-
-// const MyApp = ({ Component, pageProps }: AppProps) => (
-//   <Provider store={store}>
-//     <Component {...pageProps} />
-//   </Provider>
-// );
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -24,7 +17,6 @@ class MyApp extends App {
       ? await Component.getInitialProps(ctx)
       : {};
 
-    console.log(appProps);
     return { appProps };
   }
 

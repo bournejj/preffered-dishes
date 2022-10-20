@@ -2,11 +2,7 @@
 const client = require('../../../../client')
 const Dish = require("../../../models/dishes");
 
-
-
 export default async function getAllDishes(req, res) {
-
-  
 
   var obj = {
     dietrary_requirments_gf: true,
@@ -15,7 +11,7 @@ export default async function getAllDishes(req, res) {
     }
   
     const filters = req.query;
-    console.log(req.query)
+
   
     const compareFilter = () => {
       for (let key in filters) {

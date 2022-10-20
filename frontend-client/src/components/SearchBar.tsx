@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-
 import { useSelector, useDispatch } from "react-redux";
-
 import {
   updateFilterQuery,
   updateSearchQuery,
@@ -42,7 +40,6 @@ const SearchBar = () => {
     }
   }, [formData]);
   useEffect(() => {
-    console.log("changing url query");
     dispatch(updateUrlQuery());
   }, [query, searchQuery]);
   return (

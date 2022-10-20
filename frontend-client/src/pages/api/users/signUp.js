@@ -7,7 +7,6 @@ export default async function user(req, res) {
   if (req.method === 'POST') {
     // Process a POST request
   
- 
       const validator = jsonschema.validate(req.body, userNewSchema);
 
       if (!validator.valid) {
@@ -19,7 +18,7 @@ export default async function user(req, res) {
 
        const user = await User.register(req.body.username, req.body.password, req.body.first_name, req.body.last_name, req.body.email );
        const token = createToken(user);
-console.log(user)
+
     return res.send({ user, token })
   }
   

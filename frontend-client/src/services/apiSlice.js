@@ -27,6 +27,12 @@ export const apiSlice = createApi({
         body: { ...credentials },
       }),
     }),
+    logoutUser: builder.mutation({
+      query: () => ({
+        url: "/users/logout",
+        method: "GET",
+      }),
+    }),
   }),
 });
 

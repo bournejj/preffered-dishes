@@ -1,4 +1,5 @@
 import React from "react";
+import * as fs from 'fs';
 
 import About from "../components/About";
 import Analytics from "../components/Analytics";

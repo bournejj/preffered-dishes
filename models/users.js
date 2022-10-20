@@ -2,9 +2,6 @@ const db = require("../db");
 const bcrypt = require("bcrypt");
 const { BCRYPT_WORK_FACTOR } = require("../config.js");
 const { BadRequestError, NotFoundError, UnauthorizedError } = require("../expressError");
-// const { sqlForPartialUpdate } = require("../helpers/sql");
-
-
 
 class User {
 
@@ -76,6 +73,12 @@ static async authenticate(username, password) {
   
       return user;
     }
+
+    static async deleteUser(id) {
+      const usersRes = await db.query(`DELETE * FROM users WHERE id =$1`);
+      
+      return usersRes.rows;
+    }
   
  
   static async findAll() {
@@ -88,14 +91,6 @@ static async authenticate(username, password) {
     
     return usersRes.rows;
   }
-
-  
-//   static async createNew(username, password, first_name, last_name, email ) {
-//       const {username, password, first_name, last_name, email } = req.body
-//     const usersRes = await db.query(`INSERT INTO users (name, password, first) VALUES = ($1 $2)`, [nameid])
-    
-//     return usersRes.rows;
-//   }
 
 }
 

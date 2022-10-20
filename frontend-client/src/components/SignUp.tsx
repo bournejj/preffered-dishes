@@ -16,6 +16,7 @@ const Register = () => {
     email: "",
   
   };
+  const [formErrors, setFormErrors] = useState(false);
   const [formData, setFormData] = useState(INITIAL_STATE);
   const dispatch = useDispatch();
   const user = useSelector((store) => store);
@@ -28,29 +29,39 @@ const Register = () => {
       ...formData,
       [name]: value,
     }));
-    console.log(formData)
+    setFormErrors(false)
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (formData.username && formData.password) {
-      const userData = await register(formData);
- 
 
-      dispatch(setCredentials(userData));
-      router.push("/");
-    } else {
-      router.push("/signUp");
-    }
+    {
+      const userData = await register(formData);
+
+      if(userData.error && userData.error.originalStatus === 500) {
+        setFormErrors(true)
+        router.push("/signUp");
+      }
+else {
+  dispatch(setCredentials(userData));
+  setFormErrors(false)
+  router.push("/");
+}
+     
+    } 
   };
 
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white border-t border-red-500 rounded shadow-lg shadow-purple-800/50 lg:max-w-md">
+        {formErrors === true ?
+      <h1 className="text-3xl font-semibold text-center text-red-500">
+          All fields required
+        </h1>
+        :
         <h1 className="text-3xl font-semibold text-center text-red-500">
           Register
         </h1>
-
+        }
         <form className="mt-6" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="username" className="block text-sm text-gray-800">
@@ -138,3 +149,10 @@ const Register = () => {
 };
 
 export default Register;
+
+
+const softwareEngineer = (company,candidate) => {
+  return `${candidate} would like to work for ${company}`
+}
+
+softwareEngineer("liveNation","JackBourne");

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-
 import Link from "next/link";
 import router from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-
 import { setCredentials } from "../features/user/userSlice";
 import { useLoginUserMutation } from "../services/apiSlice";
 
 const Login = () => {
+  const [formErrors, setFormErrors] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((store) => store);
   const INITIAL_STATE = {
@@ -24,30 +23,43 @@ const Login = () => {
       ...formData,
       [name]: value,
     }));
+    setFormErrors(false)
   };
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault();    
 
     if (formData.username && formData.password) {
       const userData = await login(formData);
+      console.log(userData)
+      if(userData.error && userData.error.originalStatus === 500) {
+        setFormErrors(false)
 
-      dispatch(setCredentials(userData));
-      router.push("/");
-      // useDispatch(useLoginUserMutation(formData));
-    } else {
-      console.log("no");
-
-      // refetch(formData);
-    }
+        router.push("/signIn");
+      }
+else {
+  
+  dispatch(setCredentials(userData));
+  setFormErrors(false)
+  router.push("/");
+}
+     
+    } 
+  
   };
 
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white border-t border-red-500 rounded shadow-lg shadow-purple-800/50 lg:max-w-md">
-        <h1 className="text-3xl font-semibold text-center text-red-500">
+        {formErrors === true ?
+      <h1 className="text-3xl font-semibold text-center text-red-500">
+          wrong password or username
+        </h1>
+:
+<h1 className="text-3xl font-semibold text-center text-red-500">
           SignIn
         </h1>
-
+}
+        
         <form className="mt-6" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="username" className="block text-sm text-gray-800">

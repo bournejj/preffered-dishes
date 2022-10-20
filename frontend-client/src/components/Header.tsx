@@ -1,20 +1,29 @@
 import React, { Fragment } from "react";
-
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
-// import { Link } from 'react-scroll';
-import { useSelector } from "react-redux";
-
+import {  useDispatch } from "react-redux";
+import { logOutUser } from "../features/user/userSlice";
 import config from "../config/index.json";
+import { useSelector } from "react-redux";
+import router from "next/router";
 
-const Menu = () => {
+
+const Header = () => {
+const dispatch = useDispatch()
   const { navigation, company, callToAction } = config;
   const { mainHero } = config;
   const { name: companyName, logo } = company;
   const { user } = useSelector((store) => store);
-  console.log(user.accessToken.length);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+      dispatch(logOutUser());
+      router.push("/");
+    
+  };
+ 
   return (
     <>
       <svg
@@ -85,20 +94,34 @@ const Menu = () => {
                   </Link>
                 </div>
                 <div>
-                  <Link href="/signIn">
+                <Link href="/signIn">
                     <a
                       href={mainHero.secondaryAction.href}
                       className={`bg-red-500  w-full flex items-center justify-center px-4 py-2  text-white border border-transparent text-base font-bold rounded-md border-primary hover:bg-white hover:text-primary md:text-base `}
                     >
                       {mainHero.primaryAction.text}
                     </a>
-                  </Link>
+                    </Link>
                 </div>
               </div>
             ) : (
+              <div>
+             
+    
               <h1 className="  text-3xl tracking-tight font-extrabold text-primary sm:text">
                 Hi {user.user.firstName}
               </h1>
+              <form onSubmit={handleSubmit}>
+        
+               
+                    <button  className={`bg-red-500  w-full flex items-center justify-center px-4 py-2  text-white border border-transparent text-base font-bold rounded-md border-primary hover:bg-white hover:text-primary md:text-base `}>
+                    
+                    
+               
+                      {mainHero.thirdAction.text}
+                    </button>
+                    </form>
+              </div>
             )}
           </nav>
         </div>
@@ -155,4 +178,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default Header;
